@@ -18,7 +18,17 @@ This is a view of xianwen... 轻松接入鲜闻内容
 
 **用法**：
 
->1.依赖module - xwview;
+>1.依赖module - xwview，并在项目顶层的build.gradle里添加flatDir;
+```java
+allprojects {
+    repositories {
+        jcenter()
+        flatDir {
+            dirs '../xwview/libs'
+        }
+    }
+}
+```
 
 >2.Application继承XwBaseApplication，如下：
 ```java
