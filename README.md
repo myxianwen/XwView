@@ -3,8 +3,8 @@ This is a view of xianwen... 轻松接入鲜闻内容
 <br>
 <br>
 先上图：
->![image](https://raw.githubusercontent.com/frendyxzc/XwsdkPlugin/master/screenshot/device-2016-11-11-110118.png)
->![image](https://raw.githubusercontent.com/frendyxzc/XwsdkPlugin/master/screenshot/device-2016-11-11-110150.png)
+>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/device-2016-11-11-110118.png)
+>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/device-2016-11-11-110150.png)
 <br>
 <br>
 
@@ -32,7 +32,7 @@ This is a view of xianwen... 轻松接入鲜闻内容
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
+	<!-- APP -->
 	<application
 	  android:name=".BaseApplication"
 	     ...
@@ -44,9 +44,6 @@ This is a view of xianwen... 轻松接入鲜闻内容
 	public class MainActivity extends XwBaseActivity {
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			setContentView(R.layout.activity_main);
-
 			FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
 			initNewsListView(mParent);
 		}
@@ -56,11 +53,11 @@ This is a view of xianwen... 轻松接入鲜闻内容
 <br>
 <br>
 **Todo List**：
->1.开放新闻item点击跳转接口
->2.推荐系统接入
->3.频道管理接入
->4.搜索功能接入
->5....
+>1.开放新闻item点击跳转接口 <br>
+>2.推荐系统接入 <br>
+>3.频道管理接入 <br>
+>4.搜索功能接入 <br>
+>5.... <br>
 <br>
 <br>
 <br>
