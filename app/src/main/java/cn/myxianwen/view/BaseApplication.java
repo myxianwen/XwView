@@ -7,4 +7,11 @@ import com.iimedia.xwsdk.XwBaseApplication;
  */
 
 public class BaseApplication extends XwBaseApplication {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //设置鲜闻appid，设置后才能接入推荐系统，后续会开放申请平台
+        setXwAppid("xxxxx");
+    }
 }
