@@ -36,8 +36,17 @@ public class BaseApplication extends XwBaseApplication {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-        //设置鲜闻appid和appkey，设置后才能接入推荐系统，后续会开放申请平台
-        xwRegisterApp("idxxxxx", "keyxxxxx");
+        //设置鲜闻appid和appkey，设置后才能接入推荐系统和频道管理，后续会开放申请平台
+        xwRegisterApp("idxxxxx", "keyxxxxx", new UICallbackListener() {
+            @Override
+            public void onSuccess(Object data) {
+                String userid = (String) data;
+            }
+            @Override
+            public void onFailure(int errorEvent, String message) {
+                Log.e(TAG, "xw register failed: errorEvent=" + errorEvent + ", message=" + message);
+            }
+        });
 	}
 }
 ```
@@ -155,10 +164,8 @@ public class CommendActivity extends XwCommendDialogActivity {
 **Todo List**：
 >1.开放鲜闻视频页 <br>
 >2.开放鲜闻专题页 <br>
->3.频道管理接入 <br>
->4.搜索功能接入 <br>
->5.开放推荐系统接入平台 <br>
->6.... <br>
+>3.开放推荐系统/频道管理接入平台 <br>
+>4.... <br>
 <br>
 <br>
 
@@ -166,6 +173,7 @@ public class CommendActivity extends XwCommendDialogActivity {
 >1.0.0 实现鲜闻列表 <br>
 >1.0.1 开放新闻item点击跳转接口；增加鲜闻appid设置接口 <br>
 >1.0.2 开放鲜闻新闻详情页（包含评论功能）<br>
+>1.0.3 重写推荐系统注册接口；增加频道后台获取功能 <br>
 <br>
 <br>
 
