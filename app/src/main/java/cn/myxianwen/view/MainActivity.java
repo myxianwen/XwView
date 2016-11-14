@@ -1,14 +1,16 @@
 package cn.myxianwen.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
 
-import com.iimedia.xwsdk.activity.XwBaseActivity;
+import com.iimedia.xwsdk.activity.XwNewsListActivity;
 import com.iimedia.xwsdk.model.entity.News;
 
-public class MainActivity extends XwBaseActivity {
+public class MainActivity extends XwNewsListActivity {
     private static final String TAG = "MainActivity";
+    private Context mContext = MainActivity.this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +22,12 @@ public class MainActivity extends XwBaseActivity {
     }
 
     @Override
-    public void OnNewsItemClickedListener(News item, int newsType) {
-        super.OnNewsItemClickedListener(item, newsType);
+    public void OnNewsItemClickedListener(News item, int newsType, int from) {
+        super.OnNewsItemClickedListener(item, newsType, from);
         switch (newsType) {
             case News.TYPE_NEWS:
                 Log.d(TAG, "普通新闻");
+                NewsDetailActivity.intentTo(mContext, NewsDetailActivity.class, item, from);
                 break;
             case News.TYPE_VIDEO:
                 Log.d(TAG, "视频");

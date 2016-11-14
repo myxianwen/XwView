@@ -28,7 +28,7 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 
-    compile(name:'xwview-1.0.1', ext:'aar')
+    compile(name:'xwview-1.0.2', ext:'aar')
 
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.facebook.fresco:animated-gif:0.12.0'
@@ -36,6 +36,7 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.19'
     compile 'com.google.code.gson:gson:2.8.0'
 
+    compile 'com.android.support:design:25.0.0'
     compile 'com.android.support:support-v4:25.0.0'
     compile 'com.android.support:appcompat-v7:25.0.0'
     compile 'com.android.support:recyclerview-v7:25.0.0'

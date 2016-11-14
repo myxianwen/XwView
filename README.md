@@ -36,8 +36,8 @@ public class BaseApplication extends XwBaseApplication {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		//设置鲜闻appid，设置后才能接入推荐系统，后续会开放申请平台
-		setXwAppid("xxxxx");
+        //设置鲜闻appid和appkey，设置后才能接入推荐系统，后续会开放申请平台
+        xwRegisterApp("idxxxxx", "keyxxxxx");
 	}
 }
 ```
@@ -55,9 +55,9 @@ public class BaseApplication extends XwBaseApplication {
 </application>
 ```
 
->4.Activity继承XwBaseActivity，并调用initNewsListView()，parent目前只支持FrameLayout：
+>4.Activity继承XwNewsListActivity，并调用initNewsListView()，parent目前只支持FrameLayout：
 ```java
-public class MainActivity extends XwBaseActivity {
+public class MainActivity extends XwNewsListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
@@ -69,11 +69,12 @@ public class MainActivity extends XwBaseActivity {
 >5.在Activity里重写OnNewsItemClickedListener，处理新闻item点击事件：
 ```java
 @Override
-public void OnNewsItemClickedListener(News item, int newsType) {
-	super.OnNewsItemClickedListener(item, newsType);
+public void OnNewsItemClickedListener(News item, int newsType, int from) {
+	super.OnNewsItemClickedListener(item, newsType, from);
 	switch (newsType) {
 		case News.TYPE_NEWS:
 			Log.d(TAG, "普通新闻");
+			NewsDetailActivity.intentTo(mContext, NewsDetailActivity.class, item, from);
 			break;
 		case News.TYPE_VIDEO:
 			Log.d(TAG, "视频");
@@ -96,19 +97,75 @@ public void OnNewsItemClickedListener(News item, int newsType) {
 }
 ```
 
+>6.【可选】接入鲜闻新闻详情页（包含评论功能）
+```java
+public class NewsDetailActivity extends XwNewsDetailActivity implements XwNewsDetailActivity.IOnNewsItemClickedListener{
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
+        //指定评论类，当直接接入鲜闻的新闻详情页时，必须同时接入评论页
+        setCommendActivityClass(CommendActivity.class);
+        //初始化新闻详情页
+        initNewsDetailView(mParent);
+    }
+	//重写OnNewsItemClickedListener获取相关阅读点击事件
+	@Override
+    public void OnNewsItemClickedListener(News item, int newsType, int from) {
+        switch (newsType) {
+            case News.TYPE_NEWS:
+                Log.d(TAG, "普通新闻");
+                NewsDetailActivity.intentTo(mContext, NewsDetailActivity.class, item, from);
+                break;
+            case News.TYPE_VIDEO:
+                Log.d(TAG, "视频");
+                break;
+            case News.TYPE_PIC:
+                Log.d(TAG, "图片新闻");
+                break;
+            default:
+                break;
+        }
+    }
+	//重写OnActionItemClickedListener获取分享事件
+	@Override
+    public void OnActionItemClickedListener(News item, int actionType) {
+        switch (actionType) {
+            case XWNEWS_ACTION_SHARE:
+                Log.d(TAG, "分享");
+                break;
+            default:
+                break;
+        }
+    }
+}
+```
+```java
+public class CommendActivity extends XwCommendDialogActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
+        //初始化评论页
+        initCommendDialogView(mParent);
+    }
+}
+···
+
 <br>
 <br>
 **Todo List**：
->1.频道管理接入 <br>
->2.搜索功能接入 <br>
->3.推荐系统接入 <br>
->4.... <br>
+>1.开放鲜闻视频页 <br>
+>2.开放鲜闻专题页 <br>
+>3.频道管理接入 <br>
+>4.搜索功能接入 <br>
+>5.开放推荐系统接入平台 <br>
+>6.... <br>
 <br>
 <br>
 
 **Releasenote**:
 >1.0.0 实现鲜闻列表 <br>
 >1.0.1 开放新闻item点击跳转接口；增加鲜闻appid设置接口 <br>
+>1.0.2 开放鲜闻新闻详情页（包含评论功能）<br>
 <br>
 <br>
 

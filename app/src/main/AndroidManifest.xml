@@ -21,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".NewsDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CommendActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCommendDialogStyle"
+            android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>
