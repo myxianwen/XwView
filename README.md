@@ -87,6 +87,7 @@ public void OnNewsItemClickedListener(News item, int newsType, int from) {
 			break;
 		case News.TYPE_VIDEO:
 			Log.d(TAG, "视频");
+			VideoDetailActivity.intentTo(mContext, VideoDetailActivity.class, item, from);
 			break;
 		case News.TYPE_PIC:
 			Log.d(TAG, "图片新闻");
@@ -127,6 +128,7 @@ public class NewsDetailActivity extends XwNewsDetailActivity implements XwNewsDe
                 break;
             case News.TYPE_VIDEO:
                 Log.d(TAG, "视频");
+				VideoDetailActivity.intentTo(mContext, VideoDetailActivity.class, item, from);
                 break;
             case News.TYPE_PIC:
                 Log.d(TAG, "图片新闻");
@@ -157,7 +159,7 @@ public class CommendActivity extends XwCommendDialogActivity {
         initCommendDialogView(mParent);
     }
 }
-···
+```
 
 >7.【可选】接入鲜闻视频详情页（包含评论功能）
 ```java
