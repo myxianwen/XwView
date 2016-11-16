@@ -70,7 +70,7 @@ public class MainActivity extends XwNewsListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
-		initNewsListView(mParent);
+		initXwView(mParent);
 	}
 }
 ```
@@ -121,7 +121,7 @@ public class NewsDetailActivity extends XwNewsDetailActivity implements IOnNewsI
         //指定评论类，当直接接入鲜闻的新闻详情页时，必须同时接入评论页
         setCommendActivityClass(CommendActivity.class);
         //初始化新闻详情页
-        initNewsDetailView(mParent);
+        initXwView(mParent);
     }
 	//重写OnNewsItemClickedListener获取相关阅读点击事件
 	@Override
@@ -161,7 +161,7 @@ public class CommendActivity extends XwCommendDialogActivity {
     protected void onCreate(Bundle savedInstanceState) {
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
         //初始化评论页
-        initCommendDialogView(mParent);
+        initXwView(mParent);
     }
 }
 ```
@@ -175,7 +175,7 @@ public class VideoDetailActivity extends XwVideoDetailActivity implements IOnNew
         //指定评论类，当直接接入鲜闻的视频详情页时，必须同时接入评论页（评论页可与新闻页共用）
         setCommendActivityClass(CommendActivity.class);
         //初始化视频详情页
-        initVideoDetailView(mParent);
+        initXwView(mParent);
     }
 	//重写OnNewsItemClickedListener获取相关阅读点击事件
     @Override
@@ -219,7 +219,7 @@ public class SubjectListActivity extends XwSubjectListActivity implements IOnNew
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
         //初始化新闻详情页
-        initSubjectListView(mParent);
+        initXwView(mParent);
     }
 	//重写OnNewsItemClickedListener获取新闻点击事件
     @Override
@@ -260,6 +260,7 @@ public class SubjectListActivity extends XwSubjectListActivity implements IOnNew
 >1.0.3 重写推荐系统注册接口；增加频道后台获取功能 <br>
 >1.0.4 开发鲜闻视频详情页 <br>
 >1.0.5 开发鲜闻专题列表页 <br>
+>1.0.6 混淆和资源优化，Size减半 <br>
 <br>
 <br>
 

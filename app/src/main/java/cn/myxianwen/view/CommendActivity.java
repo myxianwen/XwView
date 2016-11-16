@@ -18,6 +18,6 @@ public class CommendActivity extends XwCommendDialogActivity {
 
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
         //初始化评论页
-        initCommendDialogView(mParent);
+        initXwView(mParent);
     }
 }

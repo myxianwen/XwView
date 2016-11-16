@@ -19,7 +19,7 @@ public class MainActivity extends XwNewsListActivity {
         setContentView(R.layout.activity_main);
 
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
-        initNewsListView(mParent);
+        initXwView(mParent);
     }
 
     @Override

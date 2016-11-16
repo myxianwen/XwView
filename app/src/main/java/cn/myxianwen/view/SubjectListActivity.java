@@ -26,7 +26,7 @@ public class SubjectListActivity extends XwSubjectListActivity implements IOnNew
 
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
         //初始化新闻详情页
-        initSubjectListView(mParent);
+        initXwView(mParent);
     }
 
     @Override

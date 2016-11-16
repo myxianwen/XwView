@@ -28,7 +28,7 @@ public class NewsDetailActivity extends XwNewsDetailActivity implements IOnNewsI
         //指定评论类，当直接接入鲜闻的新闻详情页时，必须同时接入评论页
         setCommendActivityClass(CommendActivity.class);
         //初始化新闻详情页
-        initNewsDetailView(mParent);
+        initXwView(mParent);
     }
 
     @Override
