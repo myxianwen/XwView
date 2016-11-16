@@ -94,12 +94,17 @@ public void OnNewsItemClickedListener(News item, int newsType, int from) {
 			break;
 		case News.TYPE_SUBJECT:
 			Log.d(TAG, "专题（专题列表）");
+			SubjectListActivity.intentTo(mContext, SubjectListActivity.class, item);
 			break;
 		case News.TYPE_AD:
 			Log.d(TAG, "广告活动");
 			break;
 		case News.TYPE_SUBJECT_DETAIL:
 			Log.d(TAG, "专题（带专题信息的新闻）");
+			Intent mainIntent = SubjectListActivity.newIntent(mContext, SubjectListActivity.class, item.topic_id);
+			Intent detailIntent = NewsDetailActivity.newIntent(mContext, NewsDetailActivity.class, item, from);
+			Intent[] intents = {mainIntent, detailIntent};
+			startActivities(intents);
 			break;
 		default:
 			break;
@@ -109,7 +114,7 @@ public void OnNewsItemClickedListener(News item, int newsType, int from) {
 
 >6.【可选】接入鲜闻新闻详情页（包含评论功能）
 ```java
-public class NewsDetailActivity extends XwNewsDetailActivity implements XwNewsDetailActivity.IOnNewsItemClickedListener{
+public class NewsDetailActivity extends XwNewsDetailActivity implements IOnNewsItemClickedListener{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
@@ -163,7 +168,7 @@ public class CommendActivity extends XwCommendDialogActivity {
 
 >7.【可选】接入鲜闻视频详情页（包含评论功能）
 ```java
-public class VideoDetailActivity extends XwVideoDetailActivity implements XwVideoDetailActivity.IOnNewsItemClickedListener {
+public class VideoDetailActivity extends XwVideoDetailActivity implements IOnNewsItemClickedListener {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
@@ -205,10 +210,43 @@ public class VideoDetailActivity extends XwVideoDetailActivity implements XwVide
 }
 ```
 
+>8.【可选】接入鲜闻专题列表页
+```java
+public class SubjectListActivity extends XwSubjectListActivity implements IOnNewsItemClickedListener {
+    private static final String TAG = "SubjectListActivity";
+    private Context mContext = SubjectListActivity.this;
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
+        //初始化新闻详情页
+        initSubjectListView(mParent);
+    }
+	//重写OnNewsItemClickedListener获取新闻点击事件
+    @Override
+    public void OnNewsItemClickedListener(News item, int newsType, int from) {
+        switch (newsType) {
+            case News.TYPE_NEWS:
+                Log.d(TAG, "普通新闻");
+                NewsDetailActivity.intentTo(mContext, NewsDetailActivity.class, item, from);
+                break;
+            case News.TYPE_VIDEO:
+                Log.d(TAG, "视频");
+                VideoDetailActivity.intentTo(mContext, VideoDetailActivity.class, item, from);
+                break;
+            case News.TYPE_PIC:
+                Log.d(TAG, "图片新闻");
+                break;
+            default:
+                break;
+        }
+    }
+}
+```
+
 <br>
 <br>
 **Todo List**：
->1.开放鲜闻专题页 <br>
+>1.开放图片新闻详情页 <br>
 >2.开放推荐系统/频道管理接入平台 <br>
 >3.视频页样式和交互调优 <br>
 >4.... <br>
@@ -221,6 +259,7 @@ public class VideoDetailActivity extends XwVideoDetailActivity implements XwVide
 >1.0.2 开放鲜闻新闻详情页（包含评论功能）<br>
 >1.0.3 重写推荐系统注册接口；增加频道后台获取功能 <br>
 >1.0.4 开发鲜闻视频详情页 <br>
+>1.0.5 开发鲜闻专题列表页 <br>
 <br>
 <br>
 

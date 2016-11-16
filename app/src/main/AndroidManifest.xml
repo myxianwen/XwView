@@ -25,6 +25,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".VideoDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name=".SubjectListActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".CommendActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyCommendDialogStyle"

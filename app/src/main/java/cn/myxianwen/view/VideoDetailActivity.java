@@ -8,13 +8,14 @@ import android.widget.FrameLayout;
 
 import com.iimedia.xwsdk.activity.Common;
 import com.iimedia.xwsdk.activity.XwVideoDetailActivity;
+import com.iimedia.xwsdk.interfaces.IOnNewsItemClickedListener;
 import com.iimedia.xwsdk.model.entity.News;
 
 /**
  * Created by iiMedia on 2016/11/15.
  */
 
-public class VideoDetailActivity extends XwVideoDetailActivity implements XwVideoDetailActivity.IOnNewsItemClickedListener {
+public class VideoDetailActivity extends XwVideoDetailActivity implements IOnNewsItemClickedListener {
     private static final String TAG = "VideoDetailActivity";
     private Context mContext = VideoDetailActivity.this;
 

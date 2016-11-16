@@ -1,6 +1,7 @@
 package cn.myxianwen.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
@@ -38,12 +39,17 @@ public class MainActivity extends XwNewsListActivity {
                 break;
             case News.TYPE_SUBJECT:
                 Log.d(TAG, "专题（专题列表）");
+                SubjectListActivity.intentTo(mContext, SubjectListActivity.class, item);
                 break;
             case News.TYPE_AD:
                 Log.d(TAG, "广告活动");
                 break;
             case News.TYPE_SUBJECT_DETAIL:
                 Log.d(TAG, "专题（带专题信息的新闻）");
+                Intent mainIntent = SubjectListActivity.newIntent(mContext, SubjectListActivity.class, item.topic_id);
+                Intent detailIntent = NewsDetailActivity.newIntent(mContext, NewsDetailActivity.class, item, from);
+                Intent[] intents = {mainIntent, detailIntent};
+                startActivities(intents);
                 break;
             default:
                 break;

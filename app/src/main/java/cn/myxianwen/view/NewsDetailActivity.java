@@ -8,13 +8,14 @@ import android.widget.FrameLayout;
 
 import com.iimedia.xwsdk.activity.Common;
 import com.iimedia.xwsdk.activity.XwNewsDetailActivity;
+import com.iimedia.xwsdk.interfaces.IOnNewsItemClickedListener;
 import com.iimedia.xwsdk.model.entity.News;
 
 /**
  * Created by iiMedia on 2016/11/11.
  */
 
-public class NewsDetailActivity extends XwNewsDetailActivity implements XwNewsDetailActivity.IOnNewsItemClickedListener{
+public class NewsDetailActivity extends XwNewsDetailActivity implements IOnNewsItemClickedListener {
     private static final String TAG = "NewsDetailActivity";
     private Context mContext = NewsDetailActivity.this;
 
