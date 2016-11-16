@@ -36,6 +36,7 @@ public class MainActivity extends XwNewsListActivity {
                 break;
             case News.TYPE_PIC:
                 Log.d(TAG, "图片新闻");
+                PicDetailActivity.intentTo(mContext, PicDetailActivity.class, item, from);
                 break;
             case News.TYPE_SUBJECT:
                 Log.d(TAG, "专题（专题列表）");

@@ -42,6 +42,7 @@ public class SubjectListActivity extends XwSubjectListActivity implements IOnNew
                 break;
             case News.TYPE_PIC:
                 Log.d(TAG, "图片新闻");
+                PicDetailActivity.intentTo(mContext, PicDetailActivity.class, item, from);
                 break;
             default:
                 break;

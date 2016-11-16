@@ -92,6 +92,7 @@ public void OnNewsItemClickedListener(News item, int newsType, int from) {
 			break;
 		case News.TYPE_PIC:
 			Log.d(TAG, "图片新闻");
+			PicDetailActivity.intentTo(mContext, PicDetailActivity.class, item, from);
 			break;
 		case News.TYPE_SUBJECT:
 			Log.d(TAG, "专题（专题列表）");
@@ -138,6 +139,7 @@ public class NewsDetailActivity extends XwNewsDetailActivity implements IOnNewsI
                 break;
             case News.TYPE_PIC:
                 Log.d(TAG, "图片新闻");
+                PicDetailActivity.intentTo(mContext, PicDetailActivity.class, item, from);
                 break;
             default:
                 break;
@@ -192,6 +194,7 @@ public class VideoDetailActivity extends XwVideoDetailActivity implements IOnNew
                 break;
             case News.TYPE_PIC:
                 Log.d(TAG, "图片新闻");
+                PicDetailActivity.intentTo(mContext, PicDetailActivity.class, item, from);
                 break;
             default:
                 break;
@@ -236,6 +239,7 @@ public class SubjectListActivity extends XwSubjectListActivity implements IOnNew
                 break;
             case News.TYPE_PIC:
                 Log.d(TAG, "图片新闻");
+                PicDetailActivity.intentTo(mContext, PicDetailActivity.class, item, from);
                 break;
             default:
                 break;
@@ -244,24 +248,49 @@ public class SubjectListActivity extends XwSubjectListActivity implements IOnNew
 }
 ```
 
+>9.【可选】接入鲜闻图片新闻详情页
+```java
+public class PicDetailActivity extends XwPicDetailActivity implements IOnNewsItemClickedListener {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
+        //指定评论类，当直接接入鲜闻的图片新闻详情页时，必须同时接入评论页（评论页可与新闻页共用）
+        setCommendActivityClass(CommendActivity.class);
+        //初始化新闻详情页
+        initXwView(mParent);
+    }
+	//重写OnActionItemClickedListener获取分享事件
+    @Override
+    public void OnActionItemClickedListener(News item, int actionType) {
+        switch (actionType) {
+            case Common.XWNEWS_ACTION_SHARE:
+                Log.d(TAG, "分享");
+                break;
+            default:
+                break;
+        }
+    }
+```
+
 <br>
 <br>
 **Todo List**：
->1.开放图片新闻详情页 <br>
->2.开放推荐系统/频道管理接入平台 <br>
->3.视频页样式和交互调优 <br>
+>1.开放推荐系统/频道管理接入平台 <br>
+>2.视频页样式和交互调优 <br>
+>3.开放图片新闻评论页 <br>
 >4.... <br>
 <br>
 <br>
 
 **Releasenote**:
->1.0.0 实现鲜闻列表 <br>
+>1.0.0 开放鲜闻新闻列表 <br>
 >1.0.1 开放新闻item点击跳转接口；增加鲜闻appid设置接口 <br>
 >1.0.2 开放鲜闻新闻详情页（包含评论功能）<br>
 >1.0.3 重写推荐系统注册接口；增加频道后台获取功能 <br>
->1.0.4 开发鲜闻视频详情页 <br>
->1.0.5 开发鲜闻专题列表页 <br>
+>1.0.4 开放鲜闻视频详情页（包含评论功能）<br>
+>1.0.5 开放鲜闻专题列表页 <br>
 >1.0.6 混淆和资源优化，Size减半 <br>
+>1.0.7 开放图片新闻详情页 <br>
 <br>
 <br>
 
