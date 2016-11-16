@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.FrameLayout;
 
+import com.iimedia.xwsdk.activity.Common;
 import com.iimedia.xwsdk.activity.XwNewsDetailActivity;
 import com.iimedia.xwsdk.model.entity.News;
 
@@ -38,6 +39,7 @@ public class NewsDetailActivity extends XwNewsDetailActivity implements XwNewsDe
                 break;
             case News.TYPE_VIDEO:
                 Log.d(TAG, "视频");
+                VideoDetailActivity.intentTo(mContext, VideoDetailActivity.class, item, from);
                 break;
             case News.TYPE_PIC:
                 Log.d(TAG, "图片新闻");
@@ -50,7 +52,7 @@ public class NewsDetailActivity extends XwNewsDetailActivity implements XwNewsDe
     @Override
     public void OnActionItemClickedListener(News item, int actionType) {
         switch (actionType) {
-            case XWNEWS_ACTION_SHARE:
+            case Common.XWNEWS_ACTION_SHARE:
                 Log.d(TAG, "分享");
                 break;
             default:

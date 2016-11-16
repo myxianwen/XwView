@@ -139,7 +139,7 @@ public class NewsDetailActivity extends XwNewsDetailActivity implements XwNewsDe
 	@Override
     public void OnActionItemClickedListener(News item, int actionType) {
         switch (actionType) {
-            case XWNEWS_ACTION_SHARE:
+            case Common.XWNEWS_ACTION_SHARE:
                 Log.d(TAG, "分享");
                 break;
             default:
@@ -159,12 +159,56 @@ public class CommendActivity extends XwCommendDialogActivity {
 }
 ···
 
+>7.【可选】接入鲜闻视频详情页（包含评论功能）
+```java
+public class VideoDetailActivity extends XwVideoDetailActivity implements XwVideoDetailActivity.IOnNewsItemClickedListener {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
+        //指定评论类，当直接接入鲜闻的视频详情页时，必须同时接入评论页（评论页可与新闻页共用）
+        setCommendActivityClass(CommendActivity.class);
+        //初始化视频详情页
+        initVideoDetailView(mParent);
+    }
+	//重写OnNewsItemClickedListener获取相关阅读点击事件
+    @Override
+    public void OnNewsItemClickedListener(News item, int newsType, int from) {
+        switch (newsType) {
+            case News.TYPE_NEWS:
+                Log.d(TAG, "普通新闻");
+                NewsDetailActivity.intentTo(mContext, NewsDetailActivity.class, item, from);
+                break;
+            case News.TYPE_VIDEO:
+                Log.d(TAG, "视频");
+                VideoDetailActivity.intentTo(mContext, VideoDetailActivity.class, item, from);
+                break;
+            case News.TYPE_PIC:
+                Log.d(TAG, "图片新闻");
+                break;
+            default:
+                break;
+        }
+    }
+	//重写OnActionItemClickedListener获取分享事件
+    @Override
+    public void OnActionItemClickedListener(News item, int actionType) {
+        switch (actionType) {
+            case Common.XWNEWS_ACTION_SHARE:
+                Log.d(TAG, "分享");
+                break;
+            default:
+                break;
+        }
+    }
+}
+```
+
 <br>
 <br>
 **Todo List**：
->1.开放鲜闻视频页 <br>
->2.开放鲜闻专题页 <br>
->3.开放推荐系统/频道管理接入平台 <br>
+>1.开放鲜闻专题页 <br>
+>2.开放推荐系统/频道管理接入平台 <br>
+>3.视频页样式和交互调优 <br>
 >4.... <br>
 <br>
 <br>
@@ -174,6 +218,7 @@ public class CommendActivity extends XwCommendDialogActivity {
 >1.0.1 开放新闻item点击跳转接口；增加鲜闻appid设置接口 <br>
 >1.0.2 开放鲜闻新闻详情页（包含评论功能）<br>
 >1.0.3 重写推荐系统注册接口；增加频道后台获取功能 <br>
+>1.0.4 开发鲜闻视频详情页 <br>
 <br>
 <br>
 

@@ -31,6 +31,7 @@ public class MainActivity extends XwNewsListActivity {
                 break;
             case News.TYPE_VIDEO:
                 Log.d(TAG, "视频");
+                VideoDetailActivity.intentTo(mContext, VideoDetailActivity.class, item, from);
                 break;
             case News.TYPE_PIC:
                 Log.d(TAG, "图片新闻");
