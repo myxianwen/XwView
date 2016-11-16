@@ -64,12 +64,13 @@ public class BaseApplication extends XwBaseApplication {
 </application>
 ```
 
->4.Activity继承XwNewsListActivity，并调用initNewsListView()，parent目前只支持FrameLayout：
+>4.Activity继承XwNewsListActivity，并调用initXwView()，parent目前只支持FrameLayout：
 ```java
 public class MainActivity extends XwNewsListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
+		//初始化新闻列表页
 		initXwView(mParent);
 	}
 }
@@ -218,7 +219,7 @@ public class SubjectListActivity extends XwSubjectListActivity implements IOnNew
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
-        //初始化新闻详情页
+        //初始化主题列表页
         initXwView(mParent);
     }
 	//重写OnNewsItemClickedListener获取新闻点击事件
