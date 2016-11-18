@@ -3,13 +3,14 @@ package cn.myxianwen.view;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
-import com.iimedia.xwsdk.activity.XwCommendDialogActivity;
+import com.iimedia.xwsdk.activity.XwCommentDialogActivity;
+
 
 /**
  * Created by iiMedia on 2016/11/14.
  */
 
-public class CommendActivity extends XwCommendDialogActivity {
+public class CommentActivity extends XwCommentDialogActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

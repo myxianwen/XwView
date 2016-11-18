@@ -159,7 +159,7 @@ public class NewsDetailActivity extends XwNewsDetailActivity implements IOnNewsI
 }
 ```
 ```java
-public class CommendActivity extends XwCommendDialogActivity {
+public class CommentActivity extends XwCommentDialogActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);

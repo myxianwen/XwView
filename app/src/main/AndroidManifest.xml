@@ -27,7 +27,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".SubjectListActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".CommendActivity"
+        <activity android:name=".CommentActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyCommendDialogStyle"
             android:windowSoftInputMode="adjustResize"/>
