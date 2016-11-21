@@ -25,8 +25,8 @@ public class PicDetailActivity extends XwPicDetailActivity implements IOnNewsIte
         setContentView(R.layout.activity_main);
 
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
-        //指定评论类，当直接接入鲜闻的图片新闻详情页时，必须同时接入评论页
-        setCommendActivityClass(CommentActivity.class);
+        //指定评论列表类和评论类，当直接接入鲜闻的图片新闻详情页时，必须同时接入评论列表页和评论页
+        setCommendActivityClass(CommentActivity.class, CommentListActivity.class);
         //初始化新闻详情页
         initXwView(mParent);
     }

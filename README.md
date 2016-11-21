@@ -248,14 +248,14 @@ public class SubjectListActivity extends XwSubjectListActivity implements IOnNew
 }
 ```
 
->9.【可选】接入鲜闻图片新闻详情页
+>9.【可选】接入鲜闻图片新闻详情页（包含评论列表和评论功能）
 ```java
 public class PicDetailActivity extends XwPicDetailActivity implements IOnNewsItemClickedListener {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
-        //指定评论类，当直接接入鲜闻的图片新闻详情页时，必须同时接入评论页（评论页可与新闻页共用）
-        setCommendActivityClass(CommendActivity.class);
+        //指定评论列表类和评论类，当直接接入鲜闻的图片新闻详情页时，必须同时接入评论列表页和评论页
+        setCommendActivityClass(CommentActivity.class, CommentListActivity.class);
         //初始化新闻详情页
         initXwView(mParent);
     }
@@ -271,14 +271,25 @@ public class PicDetailActivity extends XwPicDetailActivity implements IOnNewsIte
         }
     }
 ```
+```java
+public class CommentListActivity extends XwPicCommentListActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
+        //指定评论类，当直接接入鲜闻的评论列表页时，必须同时接入评论页
+        setCommendActivityClass(CommentActivity.class);
+        //初始化评论页
+        initXwView(mParent);
+    }
+}
+```
 
 <br>
 <br>
 **Todo List**：
 >1.开放推荐系统/频道管理接入平台 <br>
 >2.视频页样式和交互调优 <br>
->3.开放图片新闻评论页 <br>
->4.... <br>
+>3.... <br>
 <br>
 <br>
 
@@ -290,7 +301,8 @@ public class PicDetailActivity extends XwPicDetailActivity implements IOnNewsIte
 >1.0.4 开放鲜闻视频详情页（包含评论功能）<br>
 >1.0.5 开放鲜闻专题列表页 <br>
 >1.0.6 混淆和资源优化，Size减半 <br>
->1.0.7 开放图片新闻详情页 <br>
+>1.0.7 开放图片新闻详情页 ∆ <br>
+>1.0.8 开放评论列表页（用于图片新闻） <br>
 <br>
 <br>
 
