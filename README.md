@@ -47,6 +47,16 @@ public class BaseApplication extends XwBaseApplication {
                 Log.e(TAG, "xw register failed: errorEvent=" + errorEvent + ", message=" + message);
             }
         });
+        //设置用户昵称，可在初始化时设置默认用户名或在登录后设置
+        SettingHelper.setUserNickname("xw");
+        //设置用户头像
+        SettingHelper.setUserHeadIcon("http://images.iimedia.cn/10001e369562bd36cf41efaaa545ba308226e8bd7588b2eb4938008138fc4c22d15d0");
+        //设置频道栏颜色
+        //SettingHelper.setIndicatorColor(0, "#3F51B5");
+        //设置列表新闻标签颜色
+        //SettingHelper.setLabelColor(0, "#3F51B5");
+        //设置列表下拉刷新控件颜色
+        //SettingHelper.setRefreshProgressBarColorId(0, R.color.colorPrimary);
 	}
 }
 ```
@@ -302,7 +312,7 @@ public class CommentListActivity extends XwPicCommentListActivity {
 >1.0.5 开放鲜闻专题列表页 <br>
 >1.0.6 混淆和资源优化，Size减半 <br>
 >1.0.7 开放图片新闻详情页 ∆ <br>
->1.0.8 开放评论列表页（用于图片新闻） <br>
+>1.0.8 开放评论列表页（用于图片新闻）；开放部分样式设置接口 <br>
 <br>
 <br>
 
