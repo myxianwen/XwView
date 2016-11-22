@@ -30,7 +30,7 @@ allprojects {
 }
 ```
 
->2.Application继承XwBaseApplication，并设置鲜闻appid，如下：
+>2.Application继承XwBaseApplication，并设置鲜闻appid和appkey，如下：
 ```java
 public class BaseApplication extends XwBaseApplication {
 	@Override
@@ -47,7 +47,8 @@ public class BaseApplication extends XwBaseApplication {
                 Log.e(TAG, "xw register failed: errorEvent=" + errorEvent + ", message=" + message);
             }
         });
-        //设置用户昵称，可在初始化时设置默认用户名或在登录后设置
+		/** 以下设置可选 */
+        //设置用户昵称，可在初始化时设置默认用户名或者在登录后设置
         SettingHelper.setUserNickname("xw");
         //设置用户头像
         SettingHelper.setUserHeadIcon("http://images.iimedia.cn/10001e369562bd36cf41efaaa545ba308226e8bd7588b2eb4938008138fc4c22d15d0");
