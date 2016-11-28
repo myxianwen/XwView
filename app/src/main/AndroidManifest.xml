@@ -29,6 +29,8 @@
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".SubjectListActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".PicDetailActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".CommentListActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".CommentActivity"

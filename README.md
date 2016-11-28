@@ -48,10 +48,9 @@ public class BaseApplication extends XwBaseApplication {
             }
         });
 		/** 以下设置可选 */
-        //设置用户昵称，可在初始化时设置默认用户名或者在登录后设置
-        SettingHelper.setUserNickname("xw");
-        //设置用户头像
-        SettingHelper.setUserHeadIcon("http://images.iimedia.cn/10001e369562bd36cf41efaaa545ba308226e8bd7588b2eb4938008138fc4c22d15d0");
+        //设置用户昵称和头像，这里默认设置为“某某应用的用户”，可在登录后设置相应的昵称和头像
+        SettingHelper.setUserInfo(this, SettingUtils.getApplicationName(this) + "的用户",
+                "http://images.iimedia.cn/10001aa87a43d23ea19a3a04ea9e2c301724d24a29690911e1ef304bf72a1d577e72a");
         //设置列表背景色
         //SettingHelper.setBackgroundColor(0, "#FFFFFF");
         //设置频道栏颜色
@@ -299,6 +298,65 @@ public class CommentListActivity extends XwPicCommentListActivity {
 }
 ```
 
+>10.【可选】若有打开混淆，请在app的proguard-rules.pro里添加以下keep：
+```
+# gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class sun.misc.Unsafe { *; }
+# sdk
+-keep public class com.iimedia.xwsdk.**{*;}
+# facebook
+-dontwarn com.facebook.**
+-keep class com.facebook.**{*;}
+# google
+-dontwarn com.google.**
+-keep class com.google.**{*;}
+# volley
+-dontwarn com.android.volley.**
+-keep class com.android.volley.**{*;}
+# 保持哪些类不被混淆
+-keep public class * extends android.app.Application
+# 保持哪些类不被混淆
+-keep public class * extends android.app.Service
+# 保持哪些类不被混淆
+-keep public class * extends android.content.BroadcastReceiver
+# 保持哪些类不被混淆
+-keep public class * extends android.content.ContentProvider
+# 保持哪些类不被混淆
+-keep public class * extends android.app.backup.BackupAgentHelper
+# 保持哪些类不被混淆
+-keep public class * extends android.preference.Preference
+# 保持哪些类不被混淆
+-keep public class com.android.vending.licensing.ILicensingService
+-keep public class * implements java.io.Serializable {*;}
+# 保持 native 方法不被混淆
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+# 保持自定义控件类不被混淆
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+# 保持自定义控件类不被混淆
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+# 保持自定义控件类不被混淆
+-keepclassmembers class * extends android.app.Activity {
+    public void *(android.view.View);
+}
+# 保持枚举 enum 类不被混淆
+-keepclassmembers enum * {
+ public static **[] values();
+ public static ** valueOf(java.lang.String);
+}
+# 保持 Parcelable 不被混淆
+-keep class * implements android.os.Parcelable {
+ public static final android.os.Parcelable$Creator *;
+}
+```
+
 <br>
 <br>
 **Todo List**：
@@ -317,7 +375,12 @@ public class CommentListActivity extends XwPicCommentListActivity {
 >1.0.6 混淆和资源优化，Size减半 <br>
 >1.0.7 开放图片新闻详情页 ∆ <br>
 >1.0.8 开放评论列表页（用于图片新闻）；开放部分样式设置接口 <br>
->1.0.9 调优视频页样式和交互；开放列表背景颜色设置接口 <br>
+>1.0.9 调优视频页样式和交互；开放列表背景颜色设置接口；添加签名和混淆；添加用户信息同步处理 <br>
+<br>
+<br>
+
+**iOS版本**
+>please visit: https://github.com/full-of-fire/XWNewsFramework
 <br>
 <br>
 

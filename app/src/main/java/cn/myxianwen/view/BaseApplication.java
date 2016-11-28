@@ -5,6 +5,7 @@ import android.util.Log;
 import com.iimedia.xwsdk.XwBaseApplication;
 import com.iimedia.xwsdk.net.listener.UICallbackListener;
 import com.iimedia.xwsdk.setting.SettingHelper;
+import com.iimedia.xwsdk.setting.SettingUtils;
 
 /**
  * Created by iiMedia on 2016/11/11.
@@ -28,10 +29,9 @@ public class BaseApplication extends XwBaseApplication {
             }
         });
 
-        //设置用户昵称，可在初始化时设置默认用户名或在登录后设置
-        SettingHelper.setUserNickname("xw");
-        //设置用户头像
-        SettingHelper.setUserHeadIcon("http://images.iimedia.cn/10001e369562bd36cf41efaaa545ba308226e8bd7588b2eb4938008138fc4c22d15d0");
+        //设置用户昵称和头像，这里默认设置为“某某应用的用户”，可在登录后设置相应的昵称和头像
+        SettingHelper.setUserInfo(this, SettingUtils.getApplicationName(this) + "的用户",
+                "http://images.iimedia.cn/10001aa87a43d23ea19a3a04ea9e2c301724d24a29690911e1ef304bf72a1d577e72a");
         //设置列表背景色
         //SettingHelper.setBackgroundColor(0, "#FFFFFF");
         //设置频道栏颜色
