@@ -31,6 +31,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".PicDetailActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".AdDetailActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".CommentListActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".CommentActivity"

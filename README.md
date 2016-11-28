@@ -114,6 +114,7 @@ public void OnNewsItemClickedListener(News item, int newsType, int from) {
 			break;
 		case News.TYPE_AD:
 			Log.d(TAG, "广告活动");
+			AdDetailActivity.intentTo(mContext, AdDetailActivity.class, item);
 			break;
 		case News.TYPE_SUBJECT_DETAIL:
 			Log.d(TAG, "专题（带专题信息的新闻）");
@@ -298,7 +299,30 @@ public class CommentListActivity extends XwPicCommentListActivity {
 }
 ```
 
->10.【可选】若有打开混淆，请在app的proguard-rules.pro里添加以下keep：
+>10.【可选】接入鲜闻广告活动详情页
+```java
+public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemClickedListener {
+    private static final String TAG = "AdDetailActivity";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
+        //初始化广告(活动)详情页
+        initXwView(mParent);
+    }
+    @Override
+    public void OnActionItemClickedListener(News item, int actionType) {
+        switch (actionType) {
+            case Common.XWNEWS_ACTION_SHARE:
+                Log.d(TAG, "分享");
+                break;
+            default:
+                break;
+        }
+    }
+}
+```
+
+>11.【可选】若有打开混淆，请在app的proguard-rules.pro里添加以下keep：
 ```
 # gson
 -keepattributes Signature
@@ -360,16 +384,17 @@ public class CommentListActivity extends XwPicCommentListActivity {
 <br>
 
 **Releasenote**:
->1.0.0 开放鲜闻新闻列表 <br>
->1.0.1 开放新闻item点击跳转接口；增加鲜闻appid设置接口 <br>
->1.0.2 开放鲜闻新闻详情页（包含评论功能）<br>
->1.0.3 重写推荐系统注册接口；增加频道后台获取功能 <br>
->1.0.4 开放鲜闻视频详情页（包含评论功能）<br>
->1.0.5 开放鲜闻专题列表页 <br>
->1.0.6 混淆和资源优化，Size减半 <br>
->1.0.7 开放图片新闻详情页 ∆ <br>
->1.0.8 开放评论列表页（用于图片新闻）；开放部分样式设置接口 <br>
->1.0.9 调优视频页样式和交互；开放列表背景颜色设置接口；添加签名和混淆；添加用户信息同步处理 <br>
+>1.0.0  开放鲜闻新闻列表 <br>
+>1.0.1  开放新闻item点击跳转接口；增加鲜闻appid设置接口 <br>
+>1.0.2  开放鲜闻新闻详情页（包含评论功能）<br>
+>1.0.3  重写推荐系统注册接口；增加频道后台获取功能 <br>
+>1.0.4  开放鲜闻视频详情页（包含评论功能）<br>
+>1.0.5  开放鲜闻专题列表页 <br>
+>1.0.6  混淆和资源优化，Size减半 <br>
+>1.0.7  开放图片新闻详情页 ∆ <br>
+>1.0.8  开放评论列表页（用于图片新闻）；开放部分样式设置接口 <br>
+>1.0.9  调优视频页样式和交互；开放列表背景颜色设置接口；添加签名和混淆；添加用户信息同步处理 <br>
+>1.0.10 开放广告活动页
 <br>
 <br>
 

@@ -44,6 +44,7 @@ public class MainActivity extends XwNewsListActivity {
                 break;
             case News.TYPE_AD:
                 Log.d(TAG, "广告活动");
+                AdDetailActivity.intentTo(mContext, AdDetailActivity.class, item);
                 break;
             case News.TYPE_SUBJECT_DETAIL:
                 Log.d(TAG, "专题（带专题信息的新闻）");
