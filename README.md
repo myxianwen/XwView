@@ -317,17 +317,11 @@ public class CommentListActivity extends XwPicCommentListActivity {
 -keep class com.android.volley.**{*;}
 # 保持哪些类不被混淆
 -keep public class * extends android.app.Application
-# 保持哪些类不被混淆
 -keep public class * extends android.app.Service
-# 保持哪些类不被混淆
 -keep public class * extends android.content.BroadcastReceiver
-# 保持哪些类不被混淆
 -keep public class * extends android.content.ContentProvider
-# 保持哪些类不被混淆
 -keep public class * extends android.app.backup.BackupAgentHelper
-# 保持哪些类不被混淆
 -keep public class * extends android.preference.Preference
-# 保持哪些类不被混淆
 -keep public class com.android.vending.licensing.ILicensingService
 -keep public class * implements java.io.Serializable {*;}
 # 保持 native 方法不被混淆
