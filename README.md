@@ -70,6 +70,8 @@ public class BaseApplication extends XwBaseApplication {
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<!-- 视频亮度控制 -->
+<uses-permission android:name="android.permission.WRITE_SETTINGS" />
 <!-- APP -->
 <application
   android:name=".BaseApplication"
