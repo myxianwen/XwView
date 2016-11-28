@@ -32,6 +32,8 @@ public class BaseApplication extends XwBaseApplication {
         SettingHelper.setUserNickname("xw");
         //设置用户头像
         SettingHelper.setUserHeadIcon("http://images.iimedia.cn/10001e369562bd36cf41efaaa545ba308226e8bd7588b2eb4938008138fc4c22d15d0");
+        //设置列表背景色
+        //SettingHelper.setBackgroundColor(0, "#FFFFFF");
         //设置频道栏颜色
         //SettingHelper.setIndicatorColor(0, "#3F51B5");
         //设置列表新闻标签颜色

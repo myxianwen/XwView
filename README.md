@@ -52,6 +52,8 @@ public class BaseApplication extends XwBaseApplication {
         SettingHelper.setUserNickname("xw");
         //设置用户头像
         SettingHelper.setUserHeadIcon("http://images.iimedia.cn/10001e369562bd36cf41efaaa545ba308226e8bd7588b2eb4938008138fc4c22d15d0");
+        //设置列表背景色
+        //SettingHelper.setBackgroundColor(0, "#FFFFFF");
         //设置频道栏颜色
         //SettingHelper.setIndicatorColor(0, "#3F51B5");
         //设置列表新闻标签颜色
@@ -299,8 +301,7 @@ public class CommentListActivity extends XwPicCommentListActivity {
 <br>
 **Todo List**：
 >1.开放推荐系统/频道管理接入平台 <br>
->2.视频页样式和交互调优 <br>
->3.... <br>
+>2.... <br>
 <br>
 <br>
 
@@ -314,6 +315,7 @@ public class CommentListActivity extends XwPicCommentListActivity {
 >1.0.6 混淆和资源优化，Size减半 <br>
 >1.0.7 开放图片新闻详情页 ∆ <br>
 >1.0.8 开放评论列表页（用于图片新闻）；开放部分样式设置接口 <br>
+>1.0.9 调优视频页样式和交互；开放列表背景颜色设置接口 <br>
 <br>
 <br>
 
