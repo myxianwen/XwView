@@ -59,7 +59,7 @@ public class BaseApplication extends XwBaseApplication {
         //SettingHelper.setLabelColor(0, "#3F51B5");
         //设置列表下拉刷新控件颜色
         //SettingHelper.setRefreshProgressBarColorId(0, R.color.colorPrimary);
-        //设置列表新闻Title和Subtext颜色
+        //设置列表新闻标题和新闻来源/评论数等的字体颜色
         //SettingHelper.setTextColor(0, "#1b1b1b", "#7a7a7a");
 	}
 }
@@ -396,8 +396,8 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >1.0.7  开放图片新闻详情页 ∆ <br>
 >1.0.8  开放评论列表页（用于图片新闻）；开放部分样式设置接口 <br>
 >1.0.9  调优视频页样式和交互；开放列表背景颜色设置接口；添加签名和混淆；添加用户信息同步处理 <br>
->1.0.10 开放广告活动页
->1.1.0  调优体育赛事信息样式和新闻详情页样式，开放列表Title和Subtext颜色设置接口，更新测试签名 ∆ <br>
+>1.0.10 开放广告活动页 <br>
+>1.1.0  调优体育赛事信息样式和新闻详情页样式，开放列表新闻标题和新闻来源/评论数等相关描述的颜色设置接口，更新测试签名 ∆ <br>
 <br>
 <br>
 
