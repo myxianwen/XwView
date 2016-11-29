@@ -40,5 +40,7 @@ public class BaseApplication extends XwBaseApplication {
         //SettingHelper.setLabelColor(0, "#3F51B5");
         //设置列表下拉刷新控件颜色
         //SettingHelper.setRefreshProgressBarColorId(0, R.color.colorPrimary);
+        //设置列表新闻Title和Subtext颜色
+        //SettingHelper.setTextColor(0, "#1b1b1b", "#7a7a7a");
     }
 }
