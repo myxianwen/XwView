@@ -179,6 +179,10 @@ public class NewsDetailActivity extends XwNewsDetailActivity implements IOnNewsI
 public class CommentActivity extends XwCommentDialogActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //去掉TITLE BAR
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);
+		...
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
         //初始化评论页
         initXwView(mParent);

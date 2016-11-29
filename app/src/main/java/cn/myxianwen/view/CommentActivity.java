@@ -1,6 +1,7 @@
 package cn.myxianwen.view;
 
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.FrameLayout;
 
 import com.iimedia.xwsdk.activity.XwCommentDialogActivity;
@@ -14,6 +15,8 @@ public class CommentActivity extends XwCommentDialogActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //去掉TITLE BAR
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
