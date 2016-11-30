@@ -41,6 +41,9 @@ public class BaseApplication extends XwBaseApplication {
             @Override
             public void onSuccess(Object data) {
                 String userid = (String) data;
+                //设置用户昵称和头像，这里默认设置为“某某应用的用户”，可在登录后设置相应的昵称和头像
+                SettingHelper.setUserInfo(mContext, SettingUtils.getApplicationName(mContext) + "的用户",
+                        "http://images.iimedia.cn/10001aa87a43d23ea19a3a04ea9e2c301724d24a29690911e1ef304bf72a1d577e72a");
             }
             @Override
             public void onFailure(int errorEvent, String message) {
@@ -48,9 +51,6 @@ public class BaseApplication extends XwBaseApplication {
             }
         });
 		/** 以下设置可选 */
-        //设置用户昵称和头像，这里默认设置为“某某应用的用户”，可在登录后设置相应的昵称和头像
-        SettingHelper.setUserInfo(this, SettingUtils.getApplicationName(this) + "的用户",
-                "http://images.iimedia.cn/10001aa87a43d23ea19a3a04ea9e2c301724d24a29690911e1ef304bf72a1d577e72a");
         //设置列表背景色
         //SettingHelper.setBackgroundColor(0, "#FFFFFF");
         //设置频道栏颜色
