@@ -1,9 +1,9 @@
 package cn.myxianwen.view;
 
+import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
-import com.iimedia.xwsdk.XwBaseApplication;
 import com.iimedia.xwsdk.net.listener.UICallbackListener;
 import com.iimedia.xwsdk.setting.SettingHelper;
 import com.iimedia.xwsdk.setting.SettingUtils;
@@ -12,15 +12,17 @@ import com.iimedia.xwsdk.setting.SettingUtils;
  * Created by iiMedia on 2016/11/11.
  */
 
-public class BaseApplication extends XwBaseApplication {
+public class BaseApplication2 extends Application {
     private String TAG = "BaseApplication";
-    private Context mContext = BaseApplication.this;
+    private Context mContext = BaseApplication2.this;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        //初始化鲜闻
+        SettingHelper.xwInit(BaseApplication2.this);
         //设置鲜闻appid和appkey，设置后才能接入推荐系统和频道管理，后续会开放申请平台
-        xwRegisterApp("idxxxxx", "keyxxxxx", new UICallbackListener() {
+        SettingHelper.xwRegisterApp(mContext, "idxxxxx", "keyxxxxx", new UICallbackListener() {
             @Override
             public void onSuccess(Object data) {
                 String userid = (String) data;

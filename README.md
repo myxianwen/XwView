@@ -30,8 +30,10 @@ allprojects {
 }
 ```
 
->2.Application继承XwBaseApplication，并设置鲜闻appid和appkey，如下：
+>2.鲜闻初始化，并设置鲜闻appid和appkey，这里提供两种方法，具体如下：
 ```java
+//方法一，Application继承XwBaseApplication，可参考Demo里的BaseApplication.java
+
 public class BaseApplication extends XwBaseApplication {
 	@Override
 	public void onCreate() {
@@ -61,11 +63,52 @@ public class BaseApplication extends XwBaseApplication {
         //SettingHelper.setRefreshProgressBarColorId(0, R.color.colorPrimary);
         //设置列表新闻标题和新闻来源/评论数等的字体颜色
         //SettingHelper.setTextColor(0, "#1b1b1b", "#7a7a7a");
+        //设置列表加载动画
+        //SettingHelper.setProgressbarDrawable(R.drawable.progressbar_rotate_test);
 	}
 }
 ```
 
->3.AndroidManifest.xml里配置网络权限，并在application添加name：
+```java
+//方法二，如果您已经有自己的Application，而且不想重新继承，可在onCreate里直接初始化，可参考Demo里的BaseApplication2.java
+
+public class BaseApplication2 extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //初始化鲜闻
+        SettingHelper.xwInit(BaseApplication2.this);
+        //设置鲜闻appid和appkey，设置后才能接入推荐系统和频道管理，后续会开放申请平台
+        SettingHelper.xwRegisterApp(mContext, "idxxxxx", "keyxxxxx", new UICallbackListener() {
+            @Override
+            public void onSuccess(Object data) {
+                String userid = (String) data;
+                //设置用户昵称和头像，这里默认设置为“某某应用的用户”，可在登录后设置相应的昵称和头像
+                SettingHelper.setUserInfo(mContext, SettingUtils.getApplicationName(mContext) + "的用户",
+                        "http://images.iimedia.cn/10001aa87a43d23ea19a3a04ea9e2c301724d24a29690911e1ef304bf72a1d577e72a");
+            }
+            @Override
+            public void onFailure(int errorEvent, String message) {
+                Log.e(TAG, "xw register failed: errorEvent=" + errorEvent + ", message=" + message);
+            }
+        });
+        //设置列表背景色
+        //SettingHelper.setBackgroundColor(0, "#FFFFFF");
+        //设置频道栏颜色
+        //SettingHelper.setIndicatorColor(0, "#3F51B5");
+        //设置列表新闻标签颜色
+        //SettingHelper.setLabelColor(0, "#3F51B5");
+        //设置列表下拉刷新控件颜色
+        //SettingHelper.setRefreshProgressBarColorId(0, R.color.colorPrimary);
+        //设置列表新闻Title和Subtext颜色
+        //SettingHelper.setTextColor(0, "#1b1b1b", "#7a7a7a");
+        //设置列表加载动画
+        //SettingHelper.setProgressbarDrawable(R.drawable.progressbar_rotate_test);
+    }
+}
+```
+
+>3.AndroidManifest.xml里配置网络权限，并在application指定您的应用类名：
 ```java
 <!-- 网络权限 -->
 <uses-permission android:name="android.permission.INTERNET" />
@@ -402,6 +445,7 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >1.0.9  调优视频页样式和交互；开放列表背景颜色设置接口；添加签名和混淆；添加用户信息同步处理 <br>
 >1.0.10 开放广告活动页 <br>
 >1.1.0  调优体育赛事信息样式和详情页样式；开放列表新闻Title和Description颜色设置接口；更新签名 :point_left: <br>
+>1.1.1  开放列表加载动画设置接口；添加Application免继承继承方法 <br>
 <br>
 <br>
 
