@@ -33,7 +33,6 @@ allprojects {
 >2.鲜闻初始化，并设置鲜闻appid和appkey，这里提供两种方法，具体如下：
 ```java
 //方法一，Application继承XwBaseApplication，可参考Demo里的BaseApplication.java
-
 public class BaseApplication extends XwBaseApplication {
 	@Override
 	public void onCreate() {
@@ -68,10 +67,8 @@ public class BaseApplication extends XwBaseApplication {
 	}
 }
 ```
-
 ```java
 //方法二，如果您已经有自己的Application，而且不想重新继承，可在onCreate里直接初始化，可参考Demo里的BaseApplication2.java
-
 public class BaseApplication2 extends Application {
     @Override
     public void onCreate() {
