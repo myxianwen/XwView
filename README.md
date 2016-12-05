@@ -18,7 +18,7 @@ This is a view of xianwen... 轻松接入鲜闻内容
 
 **用法**：
 
->1.申请鲜闻appid和appkey，[马上申请](http://www.myxianwen.com/ "悬停显示")；
+>1.申请鲜闻appid和appkey，[点这里马上申请](http://www.myxianwen.com/ "鲜闻开放平台")；
 
 >2.依赖module - xwview，并在项目顶层的build.gradle里添加flatDir：
 ```java
