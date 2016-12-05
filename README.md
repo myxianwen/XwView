@@ -423,6 +423,8 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 }
 ```
 
+<br>
+
 **附注**：
 
 >1.新闻News类说明：
