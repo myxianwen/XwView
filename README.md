@@ -18,7 +18,9 @@ This is a view of xianwen... 轻松接入鲜闻内容
 
 **用法**：
 
->1.依赖module - xwview，并在项目顶层的build.gradle里添加flatDir;
+>1.登录http://www.myxianwen.com/，注册申请鲜闻appid和appkey；
+
+>2.依赖module - xwview，并在项目顶层的build.gradle里添加flatDir：
 ```java
 allprojects {
     repositories {
@@ -30,14 +32,14 @@ allprojects {
 }
 ```
 
->2.鲜闻初始化，并设置鲜闻appid和appkey，这里提供两种方法，具体如下：
+>3.鲜闻初始化，并设置鲜闻appid和appkey，这里提供两种方法，具体如下：
 ```java
 //方法一，Application继承XwBaseApplication，可参考Demo里的BaseApplication.java
 public class BaseApplication extends XwBaseApplication {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-        //设置鲜闻appid和appkey，设置后才能接入推荐系统和频道管理，后续会开放申请平台
+        //设置鲜闻appid和appkey，设置后才能接入推荐系统和频道管理
         xwRegisterApp("idxxxxx", "keyxxxxx", new UICallbackListener() {
             @Override
             public void onSuccess(Object data) {
@@ -105,7 +107,7 @@ public class BaseApplication2 extends Application {
 }
 ```
 
->3.AndroidManifest.xml里配置网络权限，并在application指定您的应用类名：
+>4.AndroidManifest.xml里配置网络权限，并在application指定您的应用类名：
 ```java
 <!-- 网络权限 -->
 <uses-permission android:name="android.permission.INTERNET" />
@@ -120,7 +122,7 @@ public class BaseApplication2 extends Application {
 </application>
 ```
 
->4.Activity继承XwNewsListActivity，并调用initXwView()，parent目前只支持FrameLayout：
+>5.Activity继承XwNewsListActivity，并调用initXwView()，parent目前只支持FrameLayout：
 ```java
 public class MainActivity extends XwNewsListActivity {
 	@Override
@@ -132,7 +134,7 @@ public class MainActivity extends XwNewsListActivity {
 }
 ```
 
->5.在Activity里重写OnNewsItemClickedListener，处理新闻item点击事件：
+>6.在Activity里重写OnNewsItemClickedListener，处理新闻item点击事件（其中News类说明请见附注1）：
 ```java
 @Override
 public void OnNewsItemClickedListener(News item, int newsType, int from) {
@@ -171,7 +173,7 @@ public void OnNewsItemClickedListener(News item, int newsType, int from) {
 }
 ```
 
->6.【可选】接入鲜闻新闻详情页（包含评论功能）
+>7.【可选】接入鲜闻新闻详情页（包含评论功能）
 ```java
 public class NewsDetailActivity extends XwNewsDetailActivity implements IOnNewsItemClickedListener{
     @Override
@@ -230,7 +232,7 @@ public class CommentActivity extends XwCommentDialogActivity {
 }
 ```
 
->7.【可选】接入鲜闻视频详情页（包含评论功能）
+>8.【可选】接入鲜闻视频详情页（包含评论功能）
 ```java
 public class VideoDetailActivity extends XwVideoDetailActivity implements IOnNewsItemClickedListener {
     @Override
@@ -275,7 +277,7 @@ public class VideoDetailActivity extends XwVideoDetailActivity implements IOnNew
 }
 ```
 
->8.【可选】接入鲜闻专题列表页
+>9.【可选】接入鲜闻专题列表页
 ```java
 public class SubjectListActivity extends XwSubjectListActivity implements IOnNewsItemClickedListener {
     private static final String TAG = "SubjectListActivity";
@@ -309,7 +311,7 @@ public class SubjectListActivity extends XwSubjectListActivity implements IOnNew
 }
 ```
 
->9.【可选】接入鲜闻图片新闻详情页（包含评论列表和评论功能）
+>10.【可选】接入鲜闻图片新闻详情页（包含评论列表和评论功能）
 ```java
 public class PicDetailActivity extends XwPicDetailActivity implements IOnNewsItemClickedListener {
     @Override
@@ -345,7 +347,7 @@ public class CommentListActivity extends XwPicCommentListActivity {
 }
 ```
 
->10.【可选】接入鲜闻广告活动详情页
+>11.【可选】接入鲜闻广告活动详情页
 ```java
 public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemClickedListener {
     private static final String TAG = "AdDetailActivity";
@@ -368,7 +370,7 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 }
 ```
 
->11.【可选】若有打开混淆，请在app的proguard-rules.pro里添加以下keep：
+>12.【可选】若有打开混淆，请在app的proguard-rules.pro里添加以下keep：
 ```
 # gson
 -keepattributes Signature
@@ -421,11 +423,11 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 }
 ```
 
-<br>
-<br>
-**Todo List**：
->1.开放推荐系统/频道管理接入平台 <br>
->2.... <br>
+**附注**：
+
+>1.新闻News类说明：
+>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/20161205115129.png)
+
 <br>
 <br>
 
