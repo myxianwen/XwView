@@ -447,6 +447,7 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >1.0.10 开放广告活动页 <br>
 >1.1.0  调优体育赛事信息样式和详情页样式；开放列表新闻Title和Description颜色设置接口；更新签名 :point_left: <br>
 >1.1.1  开放列表加载动画设置接口；添加Application免继承继承方法 <br>
+>1.1.2  替换加载异常图片；修改频道拉取问题；精简资源减少包大小 <br>
 <br>
 <br>
 
