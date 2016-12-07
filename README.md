@@ -441,8 +441,10 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/20161205115129.png)<br>
 
 >2.常见问题
+
 >>a)编译时报lite-orm包重复
 >>>xwview中已打包lite-orm-1.9.1.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
+
 >>b)编译时报universal-image-loader包重复
 >>>xwview中已打包universal-image-loader-1.9.5.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
 
