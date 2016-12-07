@@ -20,7 +20,7 @@ This is a view of xianwen... 轻松接入鲜闻内容
 
 >1.申请鲜闻appid和appkey，[点这里马上申请](http://www.myxianwen.com/ "鲜闻开放平台")；
 
->2.依赖module - xwview，并在项目顶层的build.gradle里添加flatDir：
+>2.依赖module - xwview，在项目根目录的build.gradle里添加flatDir，并在app目录下的build.gradle添加dependencies依赖：
 ```java
 allprojects {
     repositories {
@@ -29,6 +29,11 @@ allprojects {
             dirs '../xwview/libs'
         }
     }
+}
+```
+```java
+dependencies {
+	compile project(':xwview')
 }
 ```
 
@@ -377,6 +382,7 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 -keepattributes *Annotation*
 -keep class sun.misc.Unsafe { *; }
 # sdk
+-dontwarn com.iimedia.xwsdk.**
 -keep public class com.iimedia.xwsdk.**{*;}
 # facebook
 -dontwarn com.facebook.**
@@ -387,6 +393,9 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 # volley
 -dontwarn com.android.volley.**
 -keep class com.android.volley.**{*;}
+# image loader
+-dontwarn com.nostra13.**
+-keep public class com.nostra13.**{*;}
 # 保持哪些类不被混淆
 -keep public class * extends android.app.Application
 -keep public class * extends android.app.Service
@@ -424,12 +433,20 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 ```
 
 <br>
+<br>
 
 **附注**：
 
 >1.新闻News类说明：
->![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/20161205115129.png)
+>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/20161205115129.png)<br>
 
+>2.常见问题
+>>a)编译时报lite-orm包重复
+>>>xwview中已打包lite-orm-1.9.1.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
+>>b)编译时报universal-image-loader包重复
+>>>xwview中已打包universal-image-loader-1.9.5.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
+
+<br>
 <br>
 <br>
 

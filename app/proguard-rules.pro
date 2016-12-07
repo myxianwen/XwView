@@ -20,6 +20,7 @@
 -keepattributes *Annotation*
 -keep class sun.misc.Unsafe { *; }
 # sdk
+-dontwarn com.iimedia.xwsdk.**
 -keep public class com.iimedia.xwsdk.**{*;}
 # facebook
 -dontwarn com.facebook.**
@@ -30,6 +31,9 @@
 # volley
 -dontwarn com.android.volley.**
 -keep class com.android.volley.**{*;}
+# image loader
+-dontwarn com.nostra13.**
+-keep public class com.nostra13.**{*;}
 # 保持哪些类不被混淆
 -keep public class * extends android.app.Application
 # 保持哪些类不被混淆
