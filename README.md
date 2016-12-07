@@ -468,6 +468,7 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >1.1.1  开放列表加载动画设置接口；添加Application免继承继承方法 <br>
 >1.1.2  替换加载异常图片；修改频道拉取问题；精简资源减少包大小 <br>
 >1.1.3  修改接入时遇到的一些冲突问题；更新说明文档 <br>
+>1.1.4  调整视频详情页样式；修改已知bug <br>
 <br>
 <br>
 
