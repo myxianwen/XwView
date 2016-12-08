@@ -37,5 +37,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.0.0'
     testCompile 'junit:junit:4.12'
 
+    // sdk
     compile project(':xwview')
+    // use to show tab style
+    compile 'devlight.io:navigationtabbar:1.2.5'
 }

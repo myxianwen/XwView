@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context="cn.myxianwen.view.MainActivity">
 
     <FrameLayout
-        android:id="@+id/activity_main"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="2">
+        <FrameLayout
+            android:id="@+id/activity_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button_goto_viewpager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:visibility="gone"
+            android:src="@android:drawable/ic_menu_compass"
+            app:fabSize="mini"/>
     </FrameLayout>
-
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"

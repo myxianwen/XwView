@@ -3,7 +3,9 @@ package cn.myxianwen.view;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.iimedia.xwsdk.activity.XwNewsListActivity;
@@ -20,6 +22,15 @@ public class MainActivity extends XwNewsListActivity {
 
         FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
         initXwView(mParent);
+
+        FloatingActionButton mBtn = (FloatingActionButton) findViewById(R.id.button_goto_viewpager);
+        mBtn.setVisibility(View.VISIBLE);
+        mBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(mContext, MainActivity2.class));
+            }
+        });
     }
 
     @Override
