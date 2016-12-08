@@ -127,7 +127,7 @@ public class BaseApplication2 extends Application {
 </application>
 ```
 
->5.Activity继承XwNewsListActivity，并调用initXwView()，parent目前只支持FrameLayout。当然您也可以接入到项目已有的view pager里，更多请参考Demo里的MainActivity2.java：
+>5.Activity继承XwNewsListActivity，并调用initXwView()，parent目前只支持FrameLayout（当然您也可以接入到项目已有的view pager里，请参考Demo里的MainActivity2.java）：
 ```java
 public class MainActivity extends XwNewsListActivity {
 	@Override
@@ -449,8 +449,8 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >>>xwview中已打包universal-image-loader-1.9.5.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
 
 >>c)是否能接入到项目已有的View Pager里？
->>>可以，请参考Demo里的MainActivity2.java，效果图如下：
->>>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/device-2016-12-08-125952.png)<br>
+>>>可以，请参考Demo里的MainActivity2.java，效果图如下：<br>
+>>>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/device-2016-12-08-125952.png)
 
 <br>
 <br>
