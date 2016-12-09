@@ -456,13 +456,6 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 <br>
 <br>
 
-**Todo List**:
-
->1.评论接口更新 <br>
-
-<br>
-<br>
-
 **Releasenote**:
 >1.0.0  开放鲜闻新闻列表 <br>
 >1.0.1  开放新闻item点击跳转接口；增加鲜闻appid设置接口 <br>
