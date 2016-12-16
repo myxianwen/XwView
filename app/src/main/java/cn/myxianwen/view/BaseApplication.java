@@ -34,6 +34,8 @@ public class BaseApplication extends XwBaseApplication {
             }
         });
 
+        //设置是否默认第一个频道为推荐频道，默认为true
+        //SettingHelper.setRecommendChannel(false);
         //设置列表背景色
         //SettingHelper.setBackgroundColor(0, "#FFFFFF");
         //设置频道栏颜色

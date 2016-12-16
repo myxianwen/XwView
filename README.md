@@ -59,6 +59,8 @@ public class BaseApplication extends XwBaseApplication {
             }
         });
 		/** 以下设置可选 */
+		//设置是否默认第一个频道为推荐频道，默认为true
+		//SettingHelper.setRecommendChannel(false);
         //设置列表背景色
         //SettingHelper.setBackgroundColor(0, "#FFFFFF");
         //设置频道栏颜色
@@ -96,18 +98,7 @@ public class BaseApplication2 extends Application {
                 Log.e(TAG, "xw register failed: errorEvent=" + errorEvent + ", message=" + message);
             }
         });
-        //设置列表背景色
-        //SettingHelper.setBackgroundColor(0, "#FFFFFF");
-        //设置频道栏颜色
-        //SettingHelper.setIndicatorColor(0, "#3F51B5");
-        //设置列表新闻标签颜色
-        //SettingHelper.setLabelColor(0, "#3F51B5");
-        //设置列表下拉刷新控件颜色
-        //SettingHelper.setRefreshProgressBarColorId(0, R.color.colorPrimary);
-        //设置列表新闻Title和Subtext颜色
-        //SettingHelper.setTextColor(0, "#1b1b1b", "#7a7a7a");
-        //设置列表加载动画
-        //SettingHelper.setProgressbarDrawable(R.drawable.progressbar_rotate_test);
+		/** 设置可选，同方法一 */
     }
 }
 ```
@@ -445,10 +436,7 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >>a)编译时报lite-orm包重复
 >>>xwview中已打包lite-orm-1.9.1.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
 
->>b)编译时报universal-image-loader包重复
->>>xwview中已打包universal-image-loader-1.9.5.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
-
->>c)是否能接入到项目已有的View Pager里？
+>>b)是否能接入到项目已有的View Pager里？
 >>>可以，请参考Demo里的MainActivity2.java，效果图如下：<br>
 >>>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/device-2016-12-08-125952.png)
 
@@ -474,6 +462,7 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >1.1.3  修改接入时遇到的一些冲突问题；更新说明文档 <br>
 >1.1.4  调整视频详情页样式；修改已知bug <br>
 >1.1.5  调整视频音量/亮度控制交互和样式；替换评论和新闻详情页接口；精简资源；修改已知bug <br>
+>1.1.6  精简资源；开放推荐频道设置接口 <br>
 <br>
 <br>
 
