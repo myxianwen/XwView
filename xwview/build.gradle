@@ -28,7 +28,7 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 
-    compile(name:'xwview-1.1.6', ext:'aar')
+    compile(name:'xwview-1.1.7', ext:'aar')
 
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.facebook.fresco:animated-gif:0.12.0'

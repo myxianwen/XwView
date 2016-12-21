@@ -461,8 +461,9 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >1.1.2  替换加载异常图片；修改频道拉取问题；精简资源减少包大小 <br>
 >1.1.3  修改接入时遇到的一些冲突问题；更新说明文档 <br>
 >1.1.4  调整视频详情页样式；修改已知bug <br>
->1.1.5  调整视频音量/亮度控制交互和样式；替换评论和新闻详情页接口；精简资源；修改已知bug <br>
+>1.1.5  调整视频音量/亮度控制交互和样式；替换评论和新闻详情页接口；精简资源；修改已知bug :point_left: <br>
 >1.1.6  精简资源；开放推荐频道设置接口 <br>
+>1.1.7  新闻列表接口添加参数；同步部分Eclpise适配修改 <br>
 <br>
 <br>
 
