@@ -440,6 +440,9 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >>>可以，请参考Demo里的MainActivity2.java，效果图如下：<br>
 >>>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/device-2016-12-08-125952.png)
 
+>>c)有没有Eclpise的版本？
+>>>有，[Eclpise版本请点击这里](https://github.com/myxianwen/XwView_Eclpise)
+
 <br>
 <br>
 <br>
