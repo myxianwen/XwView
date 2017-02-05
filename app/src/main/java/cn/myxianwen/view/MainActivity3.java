@@ -3,48 +3,33 @@ package cn.myxianwen.view;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.FrameLayout;
 
-import com.iimedia.xwsdk.activity.XwNewsListActivity;
+import com.iimedia.xwsdk.activity.Common;
+import com.iimedia.xwsdk.interfaces.IOnNewsItemClickedListener;
 import com.iimedia.xwsdk.model.entity.News;
 
-public class MainActivity extends XwNewsListActivity {
-    private static final String TAG = "MainActivity";
-    private Context mContext = MainActivity.this;
+/**
+ * Created by iiMedia on 2017/2/5.
+ */
+
+public class MainActivity3 extends FragmentActivity implements IOnNewsItemClickedListener {
+    private static final String TAG = "MainActivity3";
+    private Context mContext = MainActivity3.this;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FrameLayout mParent = (FrameLayout) findViewById(R.id.activity_main);
-        initXwView(mParent);
-
-        FloatingActionButton mBtn = (FloatingActionButton) findViewById(R.id.button_goto_viewpager);
-        mBtn.setVisibility(View.VISIBLE);
-        mBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(mContext, MainActivity2.class));
-            }
-        });
-
-        FloatingActionButton mBtn01 = (FloatingActionButton) findViewById(R.id.button_goto_a_channel);
-        mBtn01.setVisibility(View.VISIBLE);
-        mBtn01.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(mContext, MainActivity3.class));
-            }
-        });
+        getSupportFragmentManager().beginTransaction().replace(R.id.activity_main,
+                Common.getChannelFragment(mContext, "段子")).commitAllowingStateLoss();
     }
 
     @Override
     public void OnNewsItemClickedListener(News item, int newsType, int from) {
-        super.OnNewsItemClickedListener(item, newsType, from);
         switch (newsType) {
             case News.TYPE_NEWS:
                 Log.d(TAG, "普通新闻");
@@ -72,6 +57,17 @@ public class MainActivity extends XwNewsListActivity {
                 Intent detailIntent = NewsDetailActivity.newIntent(mContext, NewsDetailActivity.class, item, from);
                 Intent[] intents = {mainIntent, detailIntent};
                 startActivities(intents);
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void OnActionItemClickedListener(News news, int actionType) {
+        switch (actionType) {
+            case Common.XWNEWS_ACTION_SHARE:
+                Log.d(TAG, "分享");
                 break;
             default:
                 break;

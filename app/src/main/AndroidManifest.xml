@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".MainActivity2"
             android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity3"
+            android:screenOrientation="portrait"/>
         <activity android:name=".NewsDetailActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".VideoDetailActivity"

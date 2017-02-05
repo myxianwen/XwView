@@ -118,7 +118,7 @@ public class BaseApplication2 extends Application {
 </application>
 ```
 
->5.Activity继承XwNewsListActivity，并调用initXwView()，parent目前只支持FrameLayout（当然您也可以接入到项目已有的view pager里，请参考Demo里的MainActivity2.java）：
+>5.Activity继承XwNewsListActivity，并调用initXwView()，parent目前只支持FrameLayout（当然您也可以接入到项目已有的view pager里，请参考Demo里的MainActivity2.java和MainActivity3.java）：
 ```java
 public class MainActivity extends XwNewsListActivity {
 	@Override
@@ -434,14 +434,21 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >2.常见问题
 
 >>a)编译时报lite-orm包重复
->>>xwview中已打包lite-orm-1.9.1.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
+>>xwview中已打包lite-orm-1.9.1.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
+>>
 
 >>b)是否能接入到项目已有的View Pager里？
->>>可以，请参考Demo里的MainActivity2.java，效果图如下：<br>
->>>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/device-2016-12-08-125952.png)
+>>可以，请参考Demo里的MainActivity2.java，效果图如下：<br>
+>>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/device-2016-12-08-125952.png)
+>>
 
 >>c)有没有Eclpise的版本？
->>>有，[Eclpise版本请点击这里](https://github.com/myxianwen/XwView_Eclpise)
+>>有，[Eclpise版本请点击这里](https://github.com/myxianwen/XwView_Eclpise)
+>>
+
+>>d)能否只接入某个特定的频道页面？
+>>1.1.8版本开始支持，请参考Demo里的MainActivity3.java，可以拿到已订阅的某个特定频道的Fragment
+>>
 
 <br>
 <br>
@@ -467,6 +474,7 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 >1.1.5  调整视频音量/亮度控制交互和样式；替换评论和新闻详情页接口；精简资源；修改已知bug :point_left: <br>
 >1.1.6  精简资源；开放推荐频道设置接口 <br>
 >1.1.7  新闻列表接口添加参数；同步部分Eclpise适配修改 <br>
+>1.1.8  开放特定页面接入方法 :point_left: <br>
 <br>
 <br>
 
