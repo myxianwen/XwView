@@ -433,20 +433,20 @@ public class AdDetailActivity extends XwAdDetailActivity implements IOnNewsItemC
 
 >2.常见问题
 
->>a)编译时报lite-orm包重复
+>>a)编译时报lite-orm包重复 <br>
 >>xwview中已打包lite-orm-1.9.1.jar，可直接删除您工程中相应jar包，依赖于xwview module即可
 >>
 
->>b)是否能接入到项目已有的View Pager里？
+>>b)是否能接入到项目已有的View Pager里？<br>
 >>可以，请参考Demo里的MainActivity2.java，效果图如下：<br>
 >>![image](https://raw.githubusercontent.com/frendyxzc/XwView/master/screenshot/device-2016-12-08-125952.png)
 >>
 
->>c)有没有Eclpise的版本？
+>>c)有没有Eclpise的版本？<br>
 >>有，[Eclpise版本请点击这里](https://github.com/myxianwen/XwView_Eclpise)
 >>
 
->>d)能否只接入某个特定的频道页面？
+>>d)能否只接入某个特定的频道页面？<br>
 >>1.1.8版本开始支持，请参考Demo里的MainActivity3.java，可以拿到已订阅的某个特定频道的Fragment
 >>
 
